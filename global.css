@@ -1,0 +1,72 @@
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-flow: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+}
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header label {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5em;
+  align-items: baseline;
+}
+
+header input {
+  width: 15em;
+}
+
+header time,
+header em {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
+header em {
+  color: #888;
+  font-style: italic;
+}
+
+/* Shared flow colors (used by both circles and legend) */
+#map circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+/* Legend: Design 1 (blocks) */
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 1em;
+}
+
+.legend > div {
+  flex: 1;
+  background: var(--color);
+  color: white;
+  padding: 0.3em 1.5em;
+  text-align: center;
+  font-weight: 600;
+}
